@@ -37,5 +37,3 @@ with open("data.csv", "w") as f:
     writer = csv.writer(f)
     writer.writerow(["symptoms", "diagnoses"])
     writer.writerows(output)
-
-# print(output)
