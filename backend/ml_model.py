@@ -15,7 +15,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 vectorizer = CountVectorizer(tokenizer = lambda x: x.split(','), binary="true")
 symptom_train_data = vectorizer.fit_transform(X_train["symptoms"])
 symptom_test_data = vectorizer.transform(X_test["symptoms"])
-diagnosis_vectorizer = CountVectorizer(ngram_range=(1,1), stop_words="english")
+diagnosis_vectorizer = CountVectorizer(tokenizer = lambda x: x.split(','), binary="true")
 diagnosis_train_data = diagnosis_vectorizer.fit_transform(y_train["diagnoses"])
 diagnosis_test_data = diagnosis_vectorizer.fit_transform(y_test["diagnoses"])
 
