@@ -36,5 +36,5 @@ def predict(data: request_body):
 
 def convert(data):
     elements = diagnosis_vectorizer.inverse_transform(rf_classifier.predict(vectorizer.transform(data)))[0]
-    return ','.join(element for element in elements)
+    return ', '.join(element.title() for element in elements)
  
