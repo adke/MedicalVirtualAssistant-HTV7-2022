@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
-from test import diagnosis_vectorizer, rf_classifier, vectorizer
+from ml_model import diagnosis_vectorizer, rf_classifier, vectorizer
 
 app = FastAPI()
  
