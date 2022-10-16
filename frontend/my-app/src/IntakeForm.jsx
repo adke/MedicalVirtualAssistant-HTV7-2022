@@ -1,32 +1,28 @@
 import React, { useState } from "react";
 import "./App.css";
 import { MessageList } from "./MessageList";
-
-const DUMMY_DATA = [
-  {
-    senderId: "Ayush",
-    text: "who will win the Hackathon?",
-  },
-  {
-    senderId: "Adish",
-    text: "We might!",
-  },
-];
+import "./main";
+import axios from "axios";
 
 export const IntakeForm = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [userConcern, setuserConcern] = useState("");
-  const [messages, setMessage] = useState(DUMMY_DATA);
-  const [showMessages, setShowMessages] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!name || !email || !userConcern) {
-      setShowMessages(false);
+      return;
     } else {
-      setShowMessages(true);
+      const res = await axios({
+        method: "GET",
+        url: "http://127.0.0.1:8000/docs#/default/predict_predict_post",
+        data: {
+          symptom: [userConcern],
+        },
+      });
+      console.loglog(res);
     }
   };
 
@@ -62,12 +58,15 @@ export const IntakeForm = () => {
         />
 
         <div className="submit-button">
-          <button type="submit" className="btn btn-primary">
+          <button
+            id="start-chat-button"
+            type="submit"
+            className="btn btn-primary"
+          >
             Start Chat
           </button>
         </div>
       </form>
-      {showMessages ? <MessageList messages={messages} /> : null}
     </div>
   );
 };
