@@ -1,0 +1,55 @@
+* {
+  box-sizing: border-box;
+}
+
+.App {
+  text-align: center;
+}
+
+.header {
+  background-color: #282c34;
+  display: flex;
+  align-items: center;
+  height: 4em;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.app-bar {
+  flex-grow: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+}
+.intake-form {
+  background-color: blanchedalmond;
+  width: 8 0%;
+  margin-top: 5em;
+}
+
+input[type="text"],
+input[type="email"] {
+  padding: 10px;
+  margin: 10px 0;
+  resize: vertical;
+  height: 4rem;
+  border: 2px solid #eee;
+  box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
+  border-radius: 10px;
+  width: 70%;
+}
+
+.submit-button {
+  padding-top: 10px;
+  padding-bottom: 20px;
+  width: 100%;
+}
+
+.text {
+  background-color: yellow;
+}
