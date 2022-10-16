@@ -1,14 +1,18 @@
 export const MessageList = ({ messages }) => {
   return (
-    <ul className="message-list">
-      {messages.map((message) => {
-        return (
-          <li key={message.id}>
-            <div>{message.senderId}</div>
-            {message.text}
-          </li>
-        );
-      })}
-    </ul>
+    <div>
+      <ul className="message-list">
+        {messages.map((message) => {
+          return (
+            <div>
+              <li key={message.id}>
+                <div className="sender-id">{message.senderId}</div>
+                {message.text}
+              </li>
+            </div>
+          );
+        })}
+      </ul>
+    </div>
   );
 };

@@ -26,10 +26,23 @@
   display: flex;
   justify-content: center;
 }
+
 .intake-form {
   background-color: blanchedalmond;
   width: 8 0%;
   margin-top: 5em;
+}
+
+.message-list {
+  margin-top: 2rem;
+  text-align: left;
+  list-style: none;
+  font-size: 1.2rem;
+}
+
+.sender-id {
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
 input[type="text"],

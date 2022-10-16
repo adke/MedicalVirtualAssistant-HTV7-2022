@@ -37,9 +37,11 @@ export const IntakeForm = () => {
       })
       console.log(res)
       setShowMessages(true);
+
+      let output_text = "Based on your symptoms, you could have one of the following: " + res.data.class
       setMessage([{
-        senderId: "Health Assistant",
-        text: res.data.class
+        senderId: "Health Assistant:",
+        text: output_text
       }])
     }
   };
