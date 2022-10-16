@@ -1,4 +1,3 @@
-from cgi import test
 import pandas as pd
 import matplotlib.pyplot as plt
 from datetime import datetime
@@ -8,7 +7,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.multiclass import OneVsRestClassifier
 from sklearn import metrics
-import joblib
+import pickle
 # warnings.filterwarnings("ignore")
 
 df = pd.read_csv("data.csv")
@@ -36,12 +35,3 @@ print(f"Accuracy: {metrics.accuracy_score(diagnosis_test_data, rf_predictions)}"
 rf_hamming_loss = metrics.hamming_loss(diagnosis_test_data, rf_predictions)
 print(f"Hamming loss: {rf_hamming_loss}")
 
-# test_value = pd.DataFrame([["cramps"], ["fever"]], columns=["symptoms"])
-test_value = ["fever"]
-print(test_value)
-test_data = vectorizer.transform(test_value)
-test_result = rf_classifier.predict(test_data)
-
-print(test_result)
-
-# joblib.dump(rf_classifier, "model.joblib")
