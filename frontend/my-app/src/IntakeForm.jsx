@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import "./App.css";
-import { MessageList } from "./MessageList";
-import "./main";
 import axios from "axios";
 
 export const IntakeForm = () => {
