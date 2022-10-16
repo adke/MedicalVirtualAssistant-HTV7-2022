@@ -1,15 +1,12 @@
 import React, { useState } from "react";
 import "./App.css";
 import { MessageList } from "./MessageList";
+import axios from 'axios';
 
 const DUMMY_DATA = [
   {
-    senderId: "Ayush",
-    text: "who will win the Hackathon?",
-  },
-  {
-    senderId: "Adish",
-    text: "We might!",
+    senderId: "Health Assistant",
+    text: "No input provided",
   },
 ];
 
@@ -20,13 +17,30 @@ export const IntakeForm = () => {
   const [messages, setMessage] = useState(DUMMY_DATA);
   const [showMessages, setShowMessages] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!name || !email || !userConcern) {
       setShowMessages(false);
     } else {
+      console.log(name)
+      const res = await axios({
+        method: 'POST',
+        url: 'http://127.0.0.1:8000/predict',
+        headers: {
+          "accept": "application/json",
+          "Content-Type": "application/json",
+        },
+        data: {
+          'symptoms': [userConcern]
+        }
+      })
+      console.log(res)
       setShowMessages(true);
+      setMessage([{
+        senderId: "Health Assistant",
+        text: res.data.class
+      }])
     }
   };
 
@@ -62,7 +76,7 @@ export const IntakeForm = () => {
         />
 
         <div className="submit-button">
-          <button type="submit" className="btn btn-primary">
+          <button id="start-chat-button" type="submit" className="btn btn-primary">
             Start Chat
           </button>
         </div>

@@ -29,4 +29,3 @@ print(f"Accuracy: {metrics.accuracy_score(diagnosis_test_data, rf_predictions)}"
 
 rf_hamming_loss = metrics.hamming_loss(diagnosis_test_data, rf_predictions)
 print(f"Hamming loss: {rf_hamming_loss}")
-
