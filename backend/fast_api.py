@@ -1,3 +1,6 @@
+import nltk
+from nltk.corpus import stopwords
+from nltk.tokenize import word_tokenize
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
@@ -32,7 +35,13 @@ class request_body(BaseModel):
 
 @api.post('/predict')
 def predict(data: request_body):
-    return {'class' : convert(data.symptoms)}
+    return {'class' : convert(filter_words(data.symptoms))}
+
+def filter_words(data):
+    words = word_tokenize(data[0])
+    stop_words = set(stopwords.words("english"))
+    filtered_words = [word for word in words if word.casefold() not in stop_words]
+    return filtered_words
 
 def convert(data):
     elements = diagnosis_vectorizer.inverse_transform(rf_classifier.predict(vectorizer.transform(data)))[0]
