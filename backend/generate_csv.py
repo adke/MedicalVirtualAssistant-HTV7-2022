@@ -6,13 +6,16 @@ def subsets(my_set):
         result = result + [y + [x] for y in result]
     return result
 
-diagnoses = ["flu", "cold", "malaria", "salmonella"]
+diagnoses = ["flu", "cold", "malaria", "salmonella", "smallpox", "covid", "measles"]
 
 symptoms = [
     ["fever", "chill", "cough", "sore", "throat", "runny", "nose", "stuffy", "ache", "headache", "fatigue", "nausea", "vomiting", "diarrhea"],
     ["cough", "sore", "throat", "runny", "nose", "stuffy", "congestion", "headache", "mild", "ache", "sneeze", "fever"],
     ["fever", "chill", "headache", "nausea", "vomiting", "diarrhea", "abdominal", "pain", "muscle", "joint", "fatigue", "rapid", "breathing", "heartrate" "heart" "rate", "cough"],
-    ["diarrhea", "stomach", "cramps", "fever", "nausea", "vomiting", "chill", "headache"]
+    ["diarrhea", "stomach", "cramps", "fever", "nausea", "vomiting", "chill", "headache"],
+    ["fever", "muscle", "ache", "headache", "fatigue", "back", "pain", "vomiting"],
+    ["fever", "chill", "cough", "fatigue", "muscle", "ache", "headache", "sore", "throat", "congestion", "nausea", "vomiting", "diarrhea"],
+    ["cough", "fever", "conjunctivitis", "congestion", "runny", "nose"]
 ]
 
 output = []
