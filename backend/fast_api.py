@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
+from fastapi.middleware.cors import CORSMiddleware
 from ml_model import diagnosis_vectorizer, rf_classifier, vectorizer
 
 api = FastAPI()
@@ -15,6 +16,17 @@ api.add_middleware(
     allow_headers=["*"],
 )
  
+origins = ["http://localhost:3000",
+            "localhost:3000"
+]
+
+api.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"]
+)
 class request_body(BaseModel):
     symptoms: list
 

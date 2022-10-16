@@ -21,7 +21,7 @@ export const IntakeForm = () => {
     e.preventDefault();
 
     if (!name || !email || !userConcern) {
-      setShowMessages(false);
+      return;
     } else {
       console.log(name)
       const res = await axios({
@@ -76,7 +76,11 @@ export const IntakeForm = () => {
         />
 
         <div className="submit-button">
-          <button id="start-chat-button" type="submit" className="btn btn-primary">
+          <button
+            id="start-chat-button"
+            type="submit"
+            className="btn btn-primary"
+          >
             Start Chat
           </button>
         </div>
